@@ -1,0 +1,23 @@
+<%- include("partials/header") -%>
+
+
+
+    <h1>Edit <%= questionTitle %></h1>
+    <% answerChoices.forEach(function(answerChoice){ %>
+        <h3><%= answerChoice %></h3>
+    <% }) %>
+
+    <form action="/compose/<%= postid %>/<%= questionid %>" method="POST">
+        <div class="form-group">
+            <label>Answer choice body</label>
+            <input class="form-control" type="text" name="answerChoiceBody" required>
+            <button class="btn btn-primary" type="submit">Add Answer Choice</button>
+        </div>
+    </form>
+    <form action="/compose/<%= postid %>" method="GET">
+        <button class="btn btn-primary" type="submit">Finish</button>
+    </form>
+    
+
+
+<%- include("partials/footer") -%>

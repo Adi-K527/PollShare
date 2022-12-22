@@ -1,0 +1,29 @@
+<%- include("partials/header") -%>
+
+    <div class="whitething">
+        <h1><strong><%= postTitle %></strong></h1>
+    </div>
+    
+    <% Questions.forEach(function(question){ %>
+        <div class="question">
+            <h3 style="margin-left: 15px"><%= question.question %></h3>
+            <form name="questionform" id="questionform" method="POST" action="/posts/<%= postid %>/<%= question._id %>">
+                <% let c = 0 %>
+                    <% question.answerChoices.forEach(function(answerChoice){ %>
+                        <input type="radio" id="<%= answerChoice %>" name="q<%= c %>" value="<%= answerChoice %>" >
+                        <label for="<%= answerChoice %>"><%= answerChoice %></label><br>
+                        <% c += 1 %>
+                    <% }) %>
+                <br><button class="btn btn-primary" type="Submit" style="margin-bottom: 5px">Submit</button>
+            </form>
+        </div>
+    <% }) %>
+    <form name="questionform" id="questionform" method="POST" action="/test/<%= postid %>">
+        <div class="submit">
+            <br><br><button class="btn btn-primary" type="submit" style="margin-bottom: 5px">Finish</button>
+        </div>
+    </form>
+
+    <!-- /posts/answerPost/<%= postid %> -->
+
+<%- include("partials/footer") -%>

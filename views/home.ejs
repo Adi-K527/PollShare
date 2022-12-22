@@ -1,0 +1,45 @@
+<%- include("partials/header") -%>
+        <div class="profile">
+            <h4 style="position:relative; left:10px; font-style: bold; font-weight: 700; font-size: 24px;"> <%= user.username %>'s Profile </h4><br>
+            <h5 style="position:relative; left:10px;">Recently Answered Posts</h5>
+            <% let j = 0 %>
+            <ul>
+                <% user.answeredPosts.forEach(post => { %>
+                    <% if (j < 5) { %>
+                        <li><%= post.title %></li>
+                        <% j += 1 %>
+                    <% } %>
+                <% }) %>   
+            </ul>
+            <br>
+            
+            <h5 style="position:relative; left:10px;">Created Posts: </h5>
+            <% j = 0 %>
+            <ul>
+                <% user.createdPosts.forEach(post => { %>
+                    <% if (j < 5) { %>
+                        <li><%= post.title %></li>
+                        <% j += 1 %>
+                    <% } %>
+                <% }) %>   
+            </ul><br>
+            <div>
+                <form method="GET" action="/compose">
+                    <button class="btn btn-primary" style="position: absolute; left: 23%; bottom: 10%;">+ Create Post</button>
+                </form>
+            </div>
+        </div>
+
+        <% posts.forEach(function(post) { %>
+            <div class="posts" onclick="location.href='/posts/<%= post._id %>';">
+                <h2 style="position:relative; left:10px; bottom: 10px;"><%= post.title %></h2>
+                <div class="poststats">
+                    <p style="margin-right: 100px;"><%= post.numAnswers %> submissions</p>
+                    <p style="margin-right: 100px;"><%= post.comments.length %> comments</p>
+                    <p style="margin-right: 10px;">Created By: <%= post.creator %></p>
+                </div>
+            </div>
+        <% }) %>
+        
+<%- include("partials/footer") -%>
+

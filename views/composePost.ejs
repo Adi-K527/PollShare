@@ -1,0 +1,38 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/styles.css">
+
+<body>
+    <div class="container">
+
+        <h1 style="margin-left: 5%; margin-bottom: 3%;"><strong>Compose <%= postTitle %></strong></h1>
+        <% questions.forEach(function(question){ %>
+            <div class="displayquestion">
+                <h3 style="margin-left: 42%"><%= question.question %></h3>
+                <ul>
+                    <% question.answerChoices.forEach(answerChoice =>{ %>
+                        <li style="margin-left: 5%; font-size: 20px;"><%= answerChoice %></li>
+                    <% }) %>    
+                </ul>
+                <form action="/compose/<%= postid %>/<%= question._id %>" method="POST">
+                    <div class="answerchoice">
+                        <input class="form-control" type="text" name="answerChoiceBody" placeholder="Answer Choice" required>
+                        <button class="btn btn-primary" type="submit">Add Answer Choice</button>
+                    </div>
+                </form>
+            </div>
+        <% }) %>
+
+        <form action="/compose/<%= postid %>" method="POST">
+            <div class="composequestion">
+                <label>Question Title</label>
+                <input class="form-control" type="text" name="questiontitle" placeholder="Question Title" required>
+                <button class="btn btn-primary" type="submit">Add Question</button>
+            </div>
+        </form>
+        <h3><%= message %></h3>
+        <form action="/createPost/<%= postid %>" method="POST">
+            <button style="margin-bottom: 5%; margin-top: 7%; margin-left: 48%;" class="btn btn-primary" type="submit">Finish</button>
+        </form>
+
+
+<%- include("partials/footer") -%>

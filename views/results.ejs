@@ -1,0 +1,27 @@
+<%- include("partials/header") -%>
+
+
+    <h3 style="text-align: center;">Created Posts</h3>
+    <% createdPosts.forEach(function(post){ %>
+        <div class="posts" onclick="location.href='/results/<%= post._id %>';">
+            <h2 style="position:relative; left:10px; bottom: 10px;"><%= post.title %></h2>
+            <div class="poststats">
+                <p style="margin-right: 100px;"><%= post.numAnswers %> submissions</p>
+                <p style="margin-right: 100px;"><%= post.comments.length %> comments</p>
+            </div>
+        </div>
+    <% }) %>
+    <br><br><br><br><br>
+    <h3 style="text-align: center;">Answered Posts</h3>
+    <% answeredPosts.forEach(function(post) { %>
+        <div class="posts" onclick="location.href='/results/<%= post._id %>';">
+            <h2 style="position:relative; left:10px; bottom: 10px;"><%= post.title %></h2>
+            <div class="poststats">
+                <p style="margin-right: 100px;"><%= post.numAnswers %> submissions</p>
+                <p style="margin-right: 100px;"><%= post.comments.length %> comments</p>
+            </div>
+        </div>
+    <% }) %>
+
+
+<%- include("partials/footer") -%>

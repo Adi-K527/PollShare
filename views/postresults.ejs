@@ -1,0 +1,37 @@
+<%- include("partials/header") -%>
+
+    <div class="whitething">
+        <h1><strong><%= postTitle %></strong></h1>
+    </div>
+
+    <% let i = 0 %>
+    <% Questions.forEach(function(question){ %>
+        <div class="question">
+            <h3 style="margin-left: 15px"><%= question.question %></h3>
+            <img src="<%= imageurls[i] %>" style="height:500px; width:auto"></img>
+        </div> 
+        <% i += 1 %>        
+    <% }) %>
+    <form action="/gohome" method="GET">
+        <button class="btn btn-primary" type="submit" style="margin-top:10px; margin-left: 50%;">Back</button>
+    </form>
+    <br><br><br>
+    <form action="/comment/<%= post._id %>" method="POST">
+        <div class="comments">
+            <input class="form-control" type="text" name="commentbody" placeholder="<%= username %>'s comment">
+            <button class="btn btn-primary" type="submit">Send</button>
+        </div>
+    </form>
+    
+        <% post.comments.forEach(function(comment){ %>
+            <div class="actualComments">
+                <p style="font-size: 12px;">Comment by <%= comment.createdUser.username %></p>
+                <p style="margin-left: 15px;"><strong><%= comment.comment %></strong></p>
+            </div>
+       <% })%>
+
+
+        
+
+
+<%- include("partials/footer") -%>

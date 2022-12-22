@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+  <meta charset="utf-8">
+  <title>asdasd</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/styles.css">
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <div class="navbar-header">
+        <p class="navbar-brand">PollShare</p>
+      </div>
+    </div>
+  </nav>
+
+  <body>
+    <div class="container">
+
+
+
+    <h1>Login</h1>
+    <form action="/" method="POST">
+        <div class="form-group">
+            <label>Username</label>
+            <input class="form-control" type="text" name="username">
+            <br>
+            <button class="btn btn-primary" type="submit">Login</button>
+            <a href="/signup">Dont have an account?</a>
+        </div>
+    </form>
+    <h3> <%= message %> </h3>
+
+
+
+<%- include("partials/footer") -%>
