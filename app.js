@@ -16,7 +16,6 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 const uri = process.env.MONGODB_URI
-console.log(uri)
 mongoose.connect(uri, {useNewUrlParser: true})
 
 
