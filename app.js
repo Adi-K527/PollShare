@@ -15,8 +15,8 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-const uri = process.env.MONGODB_URI
-mongoose.connect(uri, {useNewUrlParser: true})
+//const uri = process.env.MONGODB_URI
+mongoose.connect("mongodb+srv://adi123:123@pollshare.8zmvvoe.mongodb.net/postsDB", {useNewUrlParser: true})
 
 
 
