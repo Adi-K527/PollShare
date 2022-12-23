@@ -5,6 +5,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
 const https = require("https")
 const ejs = require("ejs");
+require("dotenv").config()
 const { url } = require("inspector");
 
 const app = express();
@@ -14,7 +15,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
 
-mongoose.connect("mongodb+srv://adi123:123@pollshare.8zmvvoe.mongodb.net/postsDB", {useNewUrlParser: true})
+mongoose.connect(process.env.URL, {useNewUrlParser: true})
 
 
 
