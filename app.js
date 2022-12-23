@@ -5,7 +5,8 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose")
 const https = require("https")
 const ejs = require("ejs");
-require("dotenv").config()
+const path = require("path")
+require('dotenv').config();
 const { url } = require("inspector");
 
 const app = express();
@@ -14,8 +15,9 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
-
-mongoose.connect(process.env.URL, {useNewUrlParser: true})
+const uri = process.env.MONGODB_URI
+console.log(uri)
+mongoose.connect(uri, {useNewUrlParser: true})
 
 
 
