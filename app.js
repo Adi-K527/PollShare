@@ -325,23 +325,3 @@ app.post("/comment/:postid", function(req, res){
 app.listen(3000, function() {
   console.log("Server started on port 3000");
 });
-
-
-
-
-
-
-
-  ///////////////////////////////////       TO-DO LIST (REACT MIGRATION AND HEROKU DEPLOYMENT)       ////////////////////////////////////////
-//- migrate everything to REACT and learn how to make the whole stack and everything
-//- maybe see how to incorporate another technology possibly - TailwindCSS
-//- rewatch udemy tutorial and set everything up on heroku to deploy
-
-
-
-//                                         Projected finish date: January 16th, 2023
-
-
-//mongo atlas cluster authentication
-// username: adi123
-// password: 123
